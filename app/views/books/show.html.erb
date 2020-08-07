@@ -9,16 +9,16 @@
 
   <div class='col-xs-9'>
 		<h2>Book detail</h2>
-    <div class="detail__table">
+    <div class="detail_table">
       <%= render 'detail', book: @book %>
     </div>
 
-    <%= form_with(model: [@book, @comment], data:{local: true})) do |f|%>
+    <%= form_with(model: [@book, @comment], data: {remote: true}) do |f|%>
       <%= f.text_area :body %>
-      <%= f.submit "送信", class: "btn btn-primary", id: "comment__textarea" %>
+      <%= f.submit "送信", class: "btn btn-primary", id: "comment_textarea" %>
     <% end %>
     <div class="comment__table">
-      <%= render 'book_comments/table', book_comments: @book.book_comments%>
+      <%= render 'table', book_comments: @book.book_comments,book: @book %>
     </div>
   </div>
 </div>
